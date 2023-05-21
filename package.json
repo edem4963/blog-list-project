@@ -4,9 +4,9 @@
   "description": "I will be building a blog list application, that allows users to save information about interesting blogs they have stumbled across on the internet",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "author": "Ed",
   "license": "ISC",
@@ -17,6 +17,11 @@
     "mongoose": "^7.1.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.5.0",
     "nodemon": "^2.0.22"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
