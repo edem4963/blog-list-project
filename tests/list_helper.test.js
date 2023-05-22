@@ -18,6 +18,19 @@ test('verifies that the unique identifier property is named id', async () => {
   })
 })
 
+test('HTTP POST creates a new post', async () => {
+  const newBlog = {
+    "title": "test",
+    "author": "ed",
+    "url": "some website url",
+    "likes": 1200
+}
+  const response =  await api.post('/api/blogs')
+                      .send(newBlog)
+                      .expect(201)
+
+})
+  
 afterAll(async () => {
   await mongoose.connection.close()
 })
